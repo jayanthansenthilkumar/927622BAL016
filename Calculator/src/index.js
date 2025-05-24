@@ -7,7 +7,17 @@ const PORT = process.env.PORT || 3000;
 const WINDOW_SIZE = parseInt(process.env.WINDOW_SIZE) || 10;
 const TIMEOUT_MS = parseInt(process.env.TIMEOUT_MS) || 500;
 const TEST_SERVER_URL = process.env.TEST_SERVER_URL || 'http://localhost:3001';
-const numberService = new NumberService(TEST_SERVER_URL, TIMEOUT_MS, WINDOW_SIZE);
+const API_BASE_URL = process.env.API_BASE_URL || 'http://20.244.56.144/evaluation-service';
+const AUTH_URL = process.env.AUTH_URL || 'http://20.244.56.144/evaluation-service/auth';
+
+// Initialize number service with both test server and API endpoints
+const numberService = new NumberService(
+  TEST_SERVER_URL, 
+  TIMEOUT_MS, 
+  WINDOW_SIZE,
+  API_BASE_URL,
+  AUTH_URL
+);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
