@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Calculator</title>    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="/js/config.js"></script>
+</head>
+<body>    
+    <div class="container">
+        <header>
+            <h1 class="title">Number Calculator</h1>
+            <p class="subtitle">Real-time number processing with animations</p>
+        </header>
+        
+        <div class="dashboard">
+            <div class="dashboard-title">Statistics Dashboard</div>
+            <div class="stats-container">
+                <div class="stat-card prime-stats">
+                    <div class="icon"><i class="fas fa-sort-numeric-up"></i></div>
+                    <h3>Prime Numbers</h3>
+                    <div class="stat-value" id="prime-count">0</div>
+                    <div class="stat-description">Current count in window</div>
+                </div>
+                <div class="stat-card fibonacci-stats">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Fibonacci Numbers</h3>
+                    <div class="stat-value" id="fibonacci-count">0</div>
+                    <div class="stat-description">Current count in window</div>
+                </div>
+                <div class="stat-card even-stats">
+                    <div class="icon"><i class="fas fa-dice-two"></i></div>
+                    <h3>Even Numbers</h3>
+                    <div class="stat-value" id="even-count">0</div>
+                    <div class="stat-description">Current count in window</div>
+                </div>
+                <div class="stat-card random-stats">
+                    <div class="icon"><i class="fas fa-random"></i></div>
+                    <h3>Random Numbers</h3>
+                    <div class="stat-value" id="random-count">0</div>
+                    <div class="stat-description">Current count in window</div>
+                </div>
+            </div>
+        </div>
+        <div class="calculator">
+            <div class="card-container">
+                <div class="card" data-type="p">
+                    <div class="card-header">
+                        <h2>Prime Numbers</h2>
+                        <div class="icon"><i class="fas fa-sort-numeric-up"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-window">
+                            <h3>Current Window</h3>
+                            <div class="number-grid" id="prime-window"></div>
+                        </div>
+                        <div class="results">
+                            <div class="average">
+                                <span>Average:</span>
+                                <span class="avg-value" id="prime-avg">0</span>
+                            </div>
+                            <button class="fetch-btn" data-type="p">Fetch Numbers</button>
+                        </div>
+                    </div>
+                    <div class="loader">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="card" data-type="f">
+                    <div class="card-header">
+                        <h2>Fibonacci Numbers</h2>
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-window">
+                            <h3>Current Window</h3>
+                            <div class="number-grid" id="fibonacci-window"></div>
+                        </div>
+                        <div class="results">
+                            <div class="average">
+                                <span>Average:</span>
+                                <span class="avg-value" id="fibonacci-avg">0</span>
+                            </div>
+                            <button class="fetch-btn" data-type="f">Fetch Numbers</button>
+                        </div>
+                    </div>
+                    <div class="loader">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="card" data-type="e">
+                    <div class="card-header">
+                        <h2>Even Numbers</h2>
+                        <div class="icon"><i class="fas fa-dice-two"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-window">
+                            <h3>Current Window</h3>
+                            <div class="number-grid" id="even-window"></div>
+                        </div>
+                        <div class="results">
+                            <div class="average">
+                                <span>Average:</span>
+                                <span class="avg-value" id="even-avg">0</span>
+                            </div>
+                            <button class="fetch-btn" data-type="e">Fetch Numbers</button>
+                        </div>
+                    </div>
+                    <div class="loader">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+                <div class="card" data-type="r">
+                    <div class="card-header">
+                        <h2>Random Numbers</h2>
+                        <div class="icon"><i class="fas fa-random"></i></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-window">
+                            <h3>Current Window</h3>
+                            <div class="number-grid" id="random-window"></div>
+                        </div>
+                        <div class="results">
+                            <div class="average">
+                                <span>Average:</span>
+                                <span class="avg-value" id="random-avg">0</span>
+                            </div>
+                            <button class="fetch-btn" data-type="r">Fetch Numbers</button>
+                        </div>
+                    </div>
+                    <div class="loader">
+                        <div class="spinner"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="notification" id="notification">
+            <div class="notification-content">
+                <i class="fas fa-info-circle"></i>
+                <span id="notification-message"></span>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Number Calculator | <a href="/health" target="_blank">API Health Check</a></p>
+    </footer>
+    
+    <button id="theme-switcher" class="theme-switcher">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

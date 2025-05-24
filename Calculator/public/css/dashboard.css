@@ -1,0 +1,169 @@
+/* Dashboard styles for statistics display */
+.dashboard {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.dashboard-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-card {
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: 20px;
+    text-align: center;
+    transition: transform var(--transition-speed);
+    animation: slideUp 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card .icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.stat-card.prime-stats .icon {
+    color: #4361ee;
+}
+
+.stat-card.fibonacci-stats .icon {
+    color: #3a0ca3;
+}
+
+.stat-card.even-stats .icon {
+    color: #7209b7;
+}
+
+.stat-card.random-stats .icon {
+    color: #f72585;
+}
+
+.stat-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.stat-card.prime-stats .stat-value {
+    color: #4361ee;
+}
+
+.stat-card.fibonacci-stats .stat-value {
+    color: #3a0ca3;
+}
+
+.stat-card.even-stats .stat-value {
+    color: #7209b7;
+}
+
+.stat-card.random-stats .stat-value {
+    color: #f72585;
+}
+
+.stat-value.changed {
+    animation: highlight 1s ease;
+}
+
+.stat-description {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Theme switcher */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: var(--box-shadow);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.theme-switcher:hover {
+    transform: scale(1.1);
+}
+
+.theme-switcher i {
+    font-size: 1.5rem;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --primary-color: #4cc9f0;
+    --secondary-color: #7209b7;
+    --accent-color: #f72585;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="dark"] .card {
+    border: 1px solid #333;
+}
+
+[data-theme="dark"] .number-item {
+    background: rgba(76, 201, 240, 0.15);
+}
+
+[data-theme="dark"] .notification {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+/* Responsive adjustments for dashboard */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+}
